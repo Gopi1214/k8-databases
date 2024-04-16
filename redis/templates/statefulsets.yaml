@@ -13,7 +13,7 @@ spec:
       app: redis
       project: roboshop
       tier: db
-  serviceName: redis
+  serviceName: "redis"
   replicas: {{ .Values.statefulset.replicas }}
   template:
     metadata:
