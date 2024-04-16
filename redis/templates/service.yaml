@@ -6,11 +6,11 @@ metadata:
   labels:
     app: redis
     project: roboshop
-    tier: db  
+    tier: db
 spec:
   ports:
   - protocol: TCP
-    prot: 6379 #service-port
+    port: 6379 #service-port
     targetPort: 6379
   clusterIP: None
   selector:
