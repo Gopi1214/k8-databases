@@ -13,7 +13,7 @@ spec:
       app: mongodb
       project: roboshop
       tier: db
-  serviceName: mongodb
+  serviceName: "mongodb"
   replicas: {{ .Values.statefulset.replicas }}
   template:
     metadata:
@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: "gopi1214/mongodb:{{ .Values.statefulset.imageVersion }}"
+        image: "joindevops/mongodb:{{ .Values.statefulset.imageVersion }}"
         volumeMounts:
         - name: mongodb
           mountPath: /data/db
@@ -36,5 +36,4 @@ spec:
       storageClassName: "ebs-sc"
       resources:
         requests:
-          storage: 2Gi
-
+          storage: 1Gi
