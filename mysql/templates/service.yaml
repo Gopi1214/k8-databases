@@ -10,7 +10,7 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    prot: 3306 #service-port
+    port: 3306 #service-port
     targetPort: 3306
   clusterIP: None
   selector:
