@@ -24,6 +24,9 @@ spec:
       containers:
       - name: rabbitmq
         image: rabbitmq
+        envFrom:
+        - secretRef:
+            name: rabbitmq
         volumeMounts:
         - name: rabbitmq
           mountPath: /var/lib/rabbitmq
@@ -35,4 +38,4 @@ spec:
       storageClassName: "ebs-sc"
       resources:
         requests:
-          storage: 1Gi
+          storage: 2Gi
