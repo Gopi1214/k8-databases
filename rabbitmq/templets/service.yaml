@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: roboshop
+  labels:
+    app: rabbitmq
+    project: roboshop
+    tier: db  
+spec:
+  ports:
+  - protocol: TCP
+    prot: 6379 #service-port
+    targetPort: 6379
+  clusterIP: None
+  selector:
+    app: rabbitmq
+    project: roboshop
+    tier: db
