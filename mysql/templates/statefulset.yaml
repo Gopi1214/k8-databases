@@ -26,6 +26,8 @@ spec:
       - name: mysql
         image: "gopi1214/mysql:{{ .Values.statefulset.imageVersion }}"
         envFrom:
+        - configMapRef:
+            name: mysql
         - secretRef:
             name: rabbitmq
         volumeMounts:
