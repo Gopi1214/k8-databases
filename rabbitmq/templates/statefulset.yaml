@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: SatefulSet
+kind: StatefulSet
 metadata:
   name: rabbitmq
   namespace: roboshop
@@ -17,9 +17,10 @@ spec:
   replicas: {{ .Values.statefulset.replicas }}
   template:
     metadata:
-      app: rabbitmq
-      project: roboshop
-      tier: db
+      labels:
+        app: rabbitmq
+        project: roboshop
+        tier: db
     spec:
       containers:
       - name: rabbitmq
