@@ -17,9 +17,10 @@ spec:
   replicas: {{ .Values.statefulset.replicas }}
   template:
     metadata:
-      app: redis
-      project: roboshop
-      tier: db
+      labels:
+        app: redis
+        project: roboshop
+        tier: db
     spec:
       containers:
       - name: redis
