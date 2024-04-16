@@ -9,7 +9,7 @@ data:
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
     - groups:
-      - system:masters
+      - roboshop-gmd-new
       userarn: arn:aws:iam::913733009480:user/gopi
       username: gopi
 kind: ConfigMap
