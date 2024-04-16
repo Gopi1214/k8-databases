@@ -10,7 +10,7 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    prot: 5672 #service-port
+    port: 5672 #service-port
     targetPort: 5672
   clusterIP: None
   selector:
