@@ -10,7 +10,7 @@ data:
   mapUsers: |
     - groups:
       - system:masters
-      userarn: arn:aws:iam::913733009480:user/chand
+      userarn: arn:aws:iam::913733009480:user/gopi
       username: gopi
 kind: ConfigMap
 metadata:
