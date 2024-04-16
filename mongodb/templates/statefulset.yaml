@@ -24,13 +24,13 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: "gopi1214/mogodb:{{ .Values.statefulset.imageVersion }}"
+        image: "gopi1214/mongodb:{{ .Values.statefulset.imageVersion }}"
         volumeMounts:
           name: mongodb
           mountPath: /data/db
   volumeClaimTemplates:
   - metadata:
-      name: 
+      name: mongodb
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: "ebs-sc"
