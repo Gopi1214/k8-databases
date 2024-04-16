@@ -7,7 +7,7 @@ metadata:
     app: redis
     project: roboshop
     tier: db
-spec: 
+spec:
   selector:
     matchLabels:
       app: redis
