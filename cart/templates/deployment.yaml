@@ -8,7 +8,7 @@ metadata:
     project: roboshop
     tier: app
 spec:
-  replicas: {{ .Value.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels: # these labels are used to find the pods
       app: cart
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: cart
-        image: "gopi1214/cart: {{ .Value.deployment.imageVersion }}"
+        image: "gopi1214/cart: {{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
