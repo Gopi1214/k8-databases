@@ -23,8 +23,15 @@ spec:
     spec:
       containers:
       - name: cart
-        image: "gopi1214/cart: {{ .Values.deployment.imageVersion }}"
+        image: "gopi1214/cart:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "250Mi"
         envFrom:
         - configMapRef:
             name: cart
