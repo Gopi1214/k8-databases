@@ -23,8 +23,15 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: "gopi1214/catalogue: {{ .Values.deployment.imageVersion }}"
+        image: "gopi1214/catalogue:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "256Mi"
         envFrom:
         - configMapRef:
             name: catalogue

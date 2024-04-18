@@ -8,7 +8,7 @@ metadata:
     project: roboshop
     tier: app
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicas }}
   selector: 
     matchLabels: # these labels are used to find the pods
       app: user
@@ -23,8 +23,15 @@ spec:
     spec:
       containers:
       - name: user
-        image: gopi1214/user:v1
+        image: "gopi1214/user:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "256Mi" 
         envFrom:
         - configMapRef:
             name: user
