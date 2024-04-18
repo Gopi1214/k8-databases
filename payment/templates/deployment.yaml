@@ -23,7 +23,7 @@ spec:
     spec:    
       containers:
       - name: payment
-        image: "gopi1214/payment:{{ .Values.deplyment.imageVersion }}"
+        image: "gopi1214/payment:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
