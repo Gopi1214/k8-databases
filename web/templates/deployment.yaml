@@ -8,7 +8,7 @@ metadata:
     project: roboshop
     tier: web
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicas }}
   selector: 
     matchLabels: # these labels are used to find the pods
       app: web
@@ -30,7 +30,7 @@ spec:
               path: nginx.conf
       containers:
       - name: web
-        image: gopi1214/web:v1
+        image: "gopi1214/web:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
