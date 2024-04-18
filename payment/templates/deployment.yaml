@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: payment
+  namespace: roboshop
+  labels:
+    app: payment
+    project: roboshop
+    tier: db
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: payment
+      project: roboshop
+      tier: db
+  template:
+    metadata:
+      labels:
+        app: payment
+        project: roboshop
+        tier: db
+    spec:    
+      containers:
+      - name: payment
+        image: "gopi1214/payment: {{ .Values.deplyment.imageVersion }}"
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: payment

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: shipping
+  namespace: roboshop
+  labels:
+    app: shipping
+    project: roboshop
+    tier: db
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: shipping
+      project: roboshop
+      tier: db
+  template:
+    metadata:
+      labels:
+        app: shipping
+        project: roboshop
+        tier: db
+    spec:    
+      containers:
+      - name: shipping
+        image: "gopi1214/shipping: {{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: shipping
